@@ -1,0 +1,98 @@
+doctype html
+head
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+title AppInterest
+link(rel="stylesheet", href="/css/stylesCategoria.css")
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  body
+    .container 
+      h2.tituloCategoriaVacia(style="opacity: 0") No se han encontrado lugares con esa categoría
+      h3.tituloCategoriaVacia.tituloVolverInicio(style="opacity: 0") Vuelva a Inicio
+      nav.sidebar 
+        ul
+          li
+            a(href="/usuarios/logged_usuario") INICIO
+          li
+            a(href="/lugares/nuevo_lugar") AÑADIR
+          li
+            a(href="../imagenes/album") ALBUM
+          li
+            a(href="../lugares/buscar_lugar") BUSCAR
+          li
+            a(href="/about") ABOUT
+      .containerGaleria 
+        h2.tituloCategoria 
+        .galeria
+          each card, i in dataLugares
+            article.blog-card
+              img.post-image(
+                src=`/images/imagenesLugar/${ dataLugares[i].imagen_lugar }`
+              )
+              .article-details
+                h4.post-category Categoría: !{ dataLugares[i].categoria }
+                h3.post-city Ciudad: !{ dataLugares[i].ciudad }
+                p.post-description !{ dataLugares[i].descripcion }
+                p.post-author Subido por
+                  b  !{ dataLugares[i].autor }
+            <svg class="separatorGaleria" viewBox="0 0 143 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line class="colorSeparador" x1="0.5" y1="3.5" x2="142.5" y2="3.5" stroke="black" stroke-linecap="round"/>
+              <circle class="colorSeparador" cx="71.5" cy="3.5" r="3.5"/>
+            </svg>
+
+  script(type="text/javascript").
+    const categoria = !{JSON.stringify(categorias)}[0]
+    const body = document.querySelector("body");
+    const blogCard = document.querySelector(".blog-card");
+    const separador = document.querySelectorAll(".colorSeparador")
+
+    const tituloCategoria = document.querySelector(".tituloCategoria");
+    tituloCategoria.innerHTML = `Categoria: ` + categoria;
+
+    if (categoria.toLowerCase() == "museo") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/museo.png") ';
+    } else if (categoria.toLowerCase() == "pueblo") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/pueblo.png") ';
+    } else if (categoria.toLowerCase() == "valle") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/valle.png") ';
+    } else if (categoria.toLowerCase() == "catarata") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/waterfall.png") ';
+      body.style.backgroundColor = "#c5c2c2";
+      tituloCategoria.style.color = "black";
+      tituloCategoria.style.textShadow = "1px 1px 5px black";
+      blogCard.style.boxShadow = "-5px 0 1rem #74A19F";
+      separador[0].style.fill ="black"
+      separador[1].style.stroke ="black"
+      separador[1].style.stroke ="black"
+    } else if (categoria.toLowerCase() == "mirador") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/mirador.png") ';
+    } else if (categoria.toLowerCase() == "lago") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/lago.png") ';
+      body.style.backgroundColor = "#c5c2c2";
+      tituloCategoria.style.color = "black";
+      tituloCategoria.style.textShadow = "1px 1px 5px black";
+      blogCard.style.boxShadow = "-5px 0 1rem #74A19F";
+      separador[0].style.stroke ="black"
+      separador[1].style.fill ="black"
+      separador[1].style.stroke ="black"
+    } else if (categoria.toLowerCase() == "rio") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/river.png") ';
+    } else if (categoria.toLowerCase() == "ruta") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/ruta.png") ';
+    } else if (categoria.toLowerCase() == "bar") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/bar.png") ';
+    } else if (categoria.toLowerCase() == "montaña") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/montaña.png") ';
+    } else if (categoria.toLowerCase() == "restaurante") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/restaurante.png") ';
+    } else if (categoria.toLowerCase() == "hotel") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/hotel.png") ';
+    } else if (categoria.toLowerCase() == "otros") {
+      body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/otros.png") ';
+    } else {
+      var elems = document.querySelectorAll(".tituloCategoriaVacia");
+      elems.forEach(function (item) {
+        item.style.opacity = "1";
+      });
+    }

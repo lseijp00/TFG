@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+    head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title AppInterest
+    link(rel='stylesheet', href='styleIndex.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    link(href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet")
+    <link rel = "icon" href = "images/imagenesPaginaDiseño/logoClaro.png" type = "image/x-icon">
+    body
+
+        .header
+            .containerLogoHeader 
+                img.imagenLogo(src="images/imagenesPaginaDiseño/logoClaro.png")
+
+            <div class="custom-shape-divider-bottom-1627429934">
+                <svg data-name="Layer 1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+                </svg>
+            </div>
+            .containerSubHeader
+                .eslogan
+                    h2 EL MUNDO TE ESPERA
+                    h3 Descubre y comparte los mejores destinos.
+                form(action='/usuarios/logged_usuario', method='POST')
+                    .login-box
+                        h1 Login
+                        .textbox
+                            i.fas.fa-user
+                            input#username(placeholder='Username', type='text',name='username')
+                        .textbox
+                            i.fas.fa-lock
+                            input#password(placeholder='Password', type='password', name="password")
+                        .containerButton
+                            button#loginButton(type='submit', value='Submit') LOGIN
+                            button#loginVisitanteButton(type='submit' onclick="entrarComoVisitante()" value='Submit') Acceder como visitante
+                            p.fraseRegistro  
+                                | Si no está registrado, hágalo
+                                | <a id="registroBoton" href="/usuarios/registrar_usuario">AQUÍ</a>
+
+        .containerFutures
+            .contenedorTituloCentro
+                    h1.tituloCaracteristicas CARACTERÍSTICAS DE APPINTEREST
+                    .separador
+            section.caracteristicasPagina
+                article.articulo.sombra
+                    img.imagenCaracteristica(src="images/imagenesPaginaDiseño/globos.jpg")
+                    .overlay
+                        <i class="fas fa-search-location"></i>
+                        h3.tituloArticulo Estudiamos los mejores lugares de interés
+                article.articulo.sombra
+                    img.imagenCaracteristica(src="images/imagenesPaginaDiseño/añadirLugar.jpg")
+                    .overlay
+                        <i class="fas fa-map-marked-alt"></i>
+                        h3.tituloArticulo Capacidad para postear tus destinos favoritos
+                article.articulo.sombra
+                    img.imagenCaracteristica(src="images/imagenesPaginaDiseño/album.jpg")
+                    .overlay
+                        <i class="far fa-images"></i>
+                        h3.tituloArticulo Puedes crear tu propio álbum de recuerdos
+
+        .containerInformationUsers
+            .containerLogo
+                img(class="logoHumanosInformacion" src="images/imagenesPaginaDiseño/humanos.png" data-aos="zoom-in-right" data-aos-duration="1000")
+
+            .containerTextos
+                h1.tituloUsers Una comunidad unida
+                <p class="textoUsers">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor purus id efficitur pulvinar. Etiam nec dui mattis, rutrum dolor in, consectetur nisl. <br/>Nullam leo odio, varius pharetra malesuada sed, egestas vitae sapien. Aliquam gravida nisl lectus, in tempus lacus posuere nec. Nam arcu est, euismod ac nisi non, eleifend luctus mauris. Sed vitae fermentum quam. Proin eget magna ut est blandit facilisis. Ut molestie porttitor sem eu consequat.
+                </p>
+
+        .containerFutures
+            h1.tituloCaracteristicas NUESTRO EQUIPO
+            section.seccionDevelopers
+                article.articuloDeveloper
+                    img(class="logoDeveloper" src="images/imagenesPaginaDiseño/designer.svg" data-aos="flip-left" data-aos-duration="1500")
+                    .containerInformacionDeveloper
+                        h1.tituloDeveloper Web Designer
+                        h3.nombreDeveloper Luis Seijas Prieto
+                article.articuloDeveloper
+                    img(class="logoDeveloper" src="images/imagenesPaginaDiseño/frontend_developer.svg" data-aos="flip-left" data-aos-duration="1500")
+                    .containerInformacionDeveloper
+                        h1.tituloDeveloper Frontend Developer
+                        h3.nombreDeveloper Luis Seijas Prieto
+                article.articuloDeveloper
+                    img(class="logoDeveloper" src="images/imagenesPaginaDiseño/backend_developer.svg" data-aos="flip-left" data-aos-duration="1500")
+                    .containerInformacionDeveloper
+                        h1.tituloDeveloper Backend Developer
+                        h3.nombreDeveloper Luis Seijas Prieto
+
+        footer
+            .content
+                .top
+                    .logo-details
+                        span.logo_name AppInterest <i style="font-size:15px;" class="fas fa-trademark"></i>
+                    .media-icons
+                        a(href='#')
+                            <i class="fab fa-facebook"></i>
+                        a(href='#')
+                            <i class="fab fa-twitter"></i>
+                        a(href='#')
+                            <i class="fab fa-instagram"></i>
+                        a(href='#')
+                            <i class="fab fa-youtube"></i>
+                .link-boxes
+                    ul.box
+                        li.link_name Links
+                        li
+                            a(href='#') Inicio
+                        li
+                            a(href='#') Contactor
+                        li
+                            a(href='#') Quiénes somos
+                        li
+                            a(href='#') Regístrate
+                    ul.box
+                        li.link_name Servicios
+                        li
+                            a(href='#') App Design
+                        li
+                            a(href='#') Web Design
+                        li
+                            a(href='#') Logo Design
+                        li
+                            a(href='#') Banner Design
+                    ul.box
+                        li.link_name Otros servicios
+                        li
+                            a(href='#') Lugares de interés
+                        li
+                            a(href='#') Administración
+                        li
+                            a(href='#') Blogs
+                    ul.box
+                        li.link_name Contacto
+                        li
+                            a(href='#') Tlf: None
+                        li
+                            a(href='#') Tlf: None
+                        li
+                            a(href='#') lseijp00@gmail.com
+            .bottom-details
+                .bottom_text
+                    span.copyright_text
+                        | Copyright © 2021 TFG 
+                        a(href='#') AppInterest
+                    span.policy_terms
+                        a(href='#') Privacy policy
+
+
+                       
+            
+        
+        //- animation on scroll
+        script(src="https://unpkg.com/aos@2.3.1/dist/aos.js")
+        
+
+        script.
+            AOS.init();
+
+            function entrarComoVisitante(){
+                var username = document.querySelector("#username")
+                var password = document.querySelector("#password")
+
+                username.value="visitante"
+                password.value="visitante"
+            }
+
+            

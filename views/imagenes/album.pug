@@ -1,0 +1,324 @@
+doctype html
+head
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+title AppInterest
+<link rel = "icon" href = "images/imagenesPaginaDiseño/logoClaro.png" type = "image/x-icon">
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+link(rel="stylesheet", href="/css/stylesAlbum.css")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+  body
+    .container
+      .header
+        .contenedorBack
+          a(href="/usuarios/logged_usuario")
+            i.fas.fa-arrow-left
+            p Inicio
+        .titulo
+          h1 TU ÁLBUM DE VIAJES
+        form#nombreUsuarioPasar.contenedorAnadirFoto(
+          method="post",
+          enctype="multipart/form-data",
+          action="./subir_imagen"
+        )
+          .elegirFile
+            <input type="file" name="file" id="file" class="file" />
+            label.labelFile(for="file") Elegir un archivo...<i class="fas fa-upload" ></i>
+            .botonFile
+              <input class="inputSubmitFile" type="submit" value="Subir" form="nombreUsuarioPasar">
+              input.valueUsername(style="display: none", name="usernameValue")
+              input.carouselLength(
+                style="display: none",
+                name="carouselLength"
+              )
+      .carousel
+        each card, i in album
+          .carousel-item(href="#")
+            h2.ciudad(id=`ciudad${i}`) ciudad
+            .containerImagenCarrousel
+              img.imagenAlbum(src=`../images/imagenesAlbum/${card}`)
+              a#botonAbrirModalEdit <i class="fas fa-edit"></i>
+              a#botonAbrirModalDelete <i class="fas fa-trash-alt"></i>
+            .informacion
+              h4.categoria(id=`categoria${i}`) categoria
+    <div class="modal" id="exampleModalEditar">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            h5#exampleModalLabel.modal-title Editar datos de la foto
+            i.fas.fa-times
+          </div>
+          form.modal-form(method="post", action="./editar_imagen")
+            input.editarCiudad(
+              placeholder="Guadalajara",
+              name="ciudad",
+              require
+            )
+            label Ciudad
+            input.editarCategoria(
+              placeholder="Lago",
+              name="categoria",
+              required
+            )
+            label Categoría
+            input.valueUsername_modal(
+              style="display: none",
+              name="usernameValueModal"
+            )
+            input.indexBotonPulsado(
+              style="display: none",
+              name="indexBotonModal"
+            )
+            input.ciudadVieja(style="display: none", name="ciudadVieja")
+            input.categoriaVieja(style="display: none", name="categoriaVieja")
+            button(type="submit") Cambiar
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="exampleModalDelete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            h5#exampleModalLabel.modal-title(style="font-size: 20px") ¿Está seguro de eliminar esta foto?
+            i.fas.fa-times
+          </div>
+          form#formDelete.modal-form-delete(
+            method="post",
+            action="./delete_imagen"
+          )
+            button(type="submit", name="response", value="yes") Sí
+            button.botonCerrarModalDelete(type="button") No
+            input.valueUsername_modalDelete(
+              style="display: none",
+              name="usernameValueModalDelete"
+            )
+            input.indexBotonPulsadoDelete(
+              style="display: none",
+              name="indexBotonModalDelete"
+            )
+            input.ciudadViejaDelete(
+              style="display: none",
+              name="ciudadViejaDelete"
+            )
+            input.categoriaViejaDelete(
+              style="display: none",
+              name="categoriaViejaDelete"
+            )
+        </div>
+      </div>
+    </div>
+
+    .informacionCarouselVacio
+      h3#textCarouselVacio Añadir fotos para poder visualizarlas
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script> 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script> 
+
+  script(type="text/javascript").
+    var album = `!{album}`;
+    var carousel = document.querySelectorAll(".carousel");
+    var textCarouselVacio = document.querySelector("#textCarouselVacio");
+
+    var carouselitem = document.getElementsByClassName("carousel-item");
+    var lengthString = carouselitem.length.toString();
+    document.querySelector(".carouselLength").value = lengthString;
+
+    const miStorage = window.localStorage;
+
+    var username = miStorage.getItem("username");
+    document.querySelector(".valueUsername").value = username;
+    document.querySelector(".valueUsername_modal").value = username;
+    document.querySelector(".valueUsername_modalDelete").value = username;
+
+    if (album.length == 0) {
+      carousel.style.opacity = 0;
+      textCarouselVacio.style.opacity = 1;
+    } else {
+      textCarouselVacio.style.opacity = 0;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const elementosCarousel = document.querySelectorAll(".carousel");
+
+      if ($(window).width() >= 850) {
+        M.Carousel.init(elementosCarousel, {
+          duration: 250,
+          dist: -100,
+          shift: 3,
+          padding: -180,
+          numVisible: 3,
+          indicators: true,
+        });
+      }
+      if ($(window).width() < 850) {
+        M.Carousel.init(elementosCarousel, {
+          duration: 250,
+          dist: -100,
+          shift: 3,
+          padding: -400,
+          numVisible: 3,
+          indicators: true,
+        });
+      }
+      if ($(window).width() < 650) {
+        console.log("hola pequeño");
+        M.Carousel.init(elementosCarousel, {
+          duration: 250,
+          dist: -100,
+          shift: 3,
+          padding: -500,
+          numVisible: 3,
+          indicators: true,
+        });
+      }
+      if ($(window).width() < 510) {
+        console.log("hola pequeño");
+        M.Carousel.init(elementosCarousel, {
+          duration: 250,
+          dist: -100,
+          shift: 3,
+          padding: -550,
+          numVisible: 3,
+          indicators: true,
+        });
+      }
+      if ($(window).width() < 450) {
+        console.log("hola pequeño");
+        M.Carousel.init(elementosCarousel, {
+          duration: 250,
+          dist: -100,
+          shift: 3,
+          padding: -620,
+          numVisible: 3,
+          indicators: true,
+        });
+      }
+    });
+
+    $("document").ready(function () {
+      $("#file").change(function () {
+        Swal.fire({
+          icon: "info",
+          html: `Presione el botón <b>Subir</b> para almacenarlo en la nube`,
+        });
+      });
+    });
+
+    var modalEdit = document.querySelectorAll("#exampleModalEditar");
+    var modalDelete = document.querySelectorAll("#exampleModalDelete");
+
+    var botonAbrirModalEdit = document.querySelectorAll("#botonAbrirModalEdit");
+    var botonCerrarModalEdit = document.querySelectorAll(".fa-times");
+
+    var botonAbrirModalDelete = document.querySelectorAll("#botonAbrirModalDelete");
+    var botonCerrarModalDeleteBoton = document.querySelectorAll(".botonCerrarModalDelete");
+    var botonCerrarModalDeleteCruz = document.querySelectorAll(".fa-times");
+    var container = document.querySelectorAll(".container");
+
+    const tlEdit = new TimelineLite();
+
+    //para abrir ycerrar la modal de editar foto
+
+    botonAbrirModalEdit.forEach(function (item) {
+      item.addEventListener("click", function () {
+        tlEdit.to(modalEdit, 0.2, { transform: "none" }).fromTo(modalEdit, 0.1, { opacity: 0 }, { opacity: 1 }, "-=0.2");
+        tlEdit.to(container, 0.2, { opacity: 0.2 }, "-=0.5");
+      });
+    });
+
+    botonCerrarModalEdit.forEach(function (item) {
+      item.addEventListener("click", function () {
+        tlEdit.to(modalEdit, 0.4, { y: 600 }).to(modalEdit, 0.8, { opacity: 0 }, "-=0.4");
+        tlEdit.to(container, 0.1, { opacity: 1 }, "-=0.3");
+      });
+    });
+
+    //para abrir ycerrar la modal de borrar foto
+    const tlDelete = new TimelineLite();
+
+    botonAbrirModalDelete.forEach(function (item) {
+      item.addEventListener("click", function () {
+        tlDelete.to(modalDelete, 0.3, { transform: "none" }).fromTo(modalDelete, 0.1, { opacity: 0 }, { opacity: 1 }, "-=0.3");
+        tlDelete.to(container, 0.2, { opacity: 0.2 }, "-=0.5");
+      });
+    });
+    botonCerrarModalDeleteBoton.forEach(function (item) {
+      item.addEventListener("click", function () {
+        tlDelete.to(modalDelete, 0.3, { y: 600 }).to(modalDelete, 0.8, { opacity: 0 }, "-=0.4");
+        tlDelete.to(container, 0.1, { opacity: 1 }, "-=0.7");
+      });
+    });
+    botonCerrarModalDeleteCruz.forEach(function (item) {
+      item.addEventListener("click", function () {
+        tlDelete.to(modalDelete, 0.3, { y: 600 }).to(modalDelete, 0.8, { opacity: 0 }, "-=0.4");
+        tlDelete.to(container, 0.1, { opacity: 1 }, "-=0.7");
+      });
+    });
+
+    //inserta el valor de ciudad y de categoria dependiendo de como se llamen las imagenes en el localDisk
+    //si tiene ciudad e imagen, el nombre de la foto tendra esos datos implicitos
+    //se separara el nombre por guiones y se recogeran los datos para así cambiarlos en la pagina
+
+    var albumArray = album.split(",");
+
+    for (let i = 0; i < albumArray.length; i++) {
+      var elementosNombreImagen = albumArray[i].split("-");
+
+      if (elementosNombreImagen.length > 1) {
+        var containerCiudad = document.querySelector(`#ciudad${i}`);
+        var containerCategoria = document.querySelector(`#categoria${i}`);
+
+        var nombreCiudad = elementosNombreImagen[1];
+        var nombreCategoria = elementosNombreImagen[2].replace(".jpg", "");
+
+        containerCiudad.innerHTML = nombreCiudad;
+        containerCategoria.innerHTML = nombreCategoria;
+      }
+    }
+
+    var elementosImagenes = document.querySelectorAll(".imagenAlbum");
+
+    Array.prototype.forEach.call(elementosImagenes, function (item, i) {
+      if (!item.src.includes(username) || item.src.includes("deleted")) {
+        item.parentElement.remove();
+      }
+    });
+
+    var arrayBotonEdit = document.querySelectorAll("#botonAbrirModalEdit");
+    var arrayBotonDelete = document.querySelectorAll("#botonAbrirModalDelete");
+
+    arrayBotonEdit.forEach(function (item, i) {
+      item.addEventListener("click", function () {
+        var aux = i;
+        console.log(aux);
+        var auxStr = aux.toString();
+        document.querySelector(".indexBotonPulsado").value = auxStr;
+
+        var elemCiudad = document.getElementsByClassName("ciudad");
+        var elemCategoria = document.getElementsByClassName("categoria");
+
+        document.querySelector(".ciudadVieja").value = elemCiudad[i].innerHTML;
+        document.querySelector(".categoriaVieja").value = elemCategoria[i].innerHTML;
+      });
+    });
+
+    arrayBotonDelete.forEach(function (item, i) {
+      item.addEventListener("click", function () {
+        var aux = i.toString();
+
+        document.querySelector(".indexBotonPulsadoDelete").value = aux;
+
+        var elemCiudad = document.getElementsByClassName("ciudad");
+        var elemCategoria = document.getElementsByClassName("categoria");
+
+        document.querySelector(".ciudadViejaDelete").value = elemCiudad[i].innerHTML;
+        document.querySelector(".categoriaViejaDelete").value = elemCategoria[i].innerHTML;
+      });
+    });

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title AppInterest
+    link(rel='stylesheet', href='/css/stylesRegistrarse.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    
+    body
+        .container
+            .hojaIzquierda
+                .contenedorImagenStarted 
+                    img.logoRegistro(src="/images/imagenesPaginaDiseño/logoClaro.png")
+                .contenedorFraseStarted 
+                    h2 BIENVENIDO
+            .hojaDerecha
+                .login-box
+                    h1 Registrarse
+                    div.separador
+                    form.formulario(action='/usuarios', method='POST')
+                        div.nombreYApellido
+                            .textbox
+                                i.fas.fa-user
+                                input#name(placeholder='Nombre', type='text' name="nombre")
+                            .textbox
+                                i.fas.fa-user
+                                input#last_name(placeholder='Apellido', type='text' name="apellido")
+                        .textbox
+                            i.fas.fa-clipboard-user
+                            input#username(placeholder='Nombre de usuario', type='text' name="username")
+                        .textbox
+                            i.fas.fa-lock
+                            input#password(placeholder='Contraseña', type='password' name="password")
+                        .textbox
+                            <i class="fas fa-building"></i>
+                            input#lugarVivienda(placeholder='Tu ciudad', type='text' name="lugar_vivienda")
+                        .containerButton
+                            button(type='submit', value='Submit') Submit
