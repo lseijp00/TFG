@@ -1,0 +1,260 @@
+@import "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css";
+@import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap';
+
+#my{
+    zoom: 100%;
+}
+::placeholder {
+    color: whitesmoke;
+    opacity: 0.6;
+    font-weight:300;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+a,ul,li{
+    text-decoration: none;
+    list-style: none;
+    color:inherit;
+}
+
+body {
+    background: url("/images/imagenesPaginaDiseño/fondoRegistro.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    margin:0;
+    padding: 0;
+}
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    padding: 0;
+    height:100vh;
+    z-index: -99;
+}
+
+.container{
+    display: flex;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.5);
+    width: min(90%,900px);
+    height: 75vh;
+    transition: opacity 500ms;
+}
+
+
+
+.hojaIzquierda{
+    background-color: rgb(224, 102, 102);
+    background: url("/images/imagenesPaginaDiseño/fotoIzquierda.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 50%;
+    gap:1rem;
+    animation: circle 1s reverse;
+}
+
+@keyframes circle {
+    0% { clip-path: circle(75%); }
+    100% { clip-path: circle(0%); }
+}
+
+.contenedorImagenStarted{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+    
+    .contenedorImagenStarted img{
+        width: 30%;
+        background-color: #e98f54;
+        border-radius:30% ;
+    }
+
+.logoRegistro{
+    max-width: 100%;
+    height: auto;
+    animation: triangle 2s ease;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    transition-duration: 2000ms, 6000ms; 
+}
+
+@keyframes triangle {
+    0% {
+        transform: scale(0.5) translate(-1000px,50%);
+    }
+    50%{
+        transform: rotate(0.5turn);
+    }    
+    100% {
+        opacity: 1;
+    }
+}
+
+.contenedorFraseStarted{
+    margin-bottom: 30%;
+
+}
+    .contenedorFraseStarted h2{
+        color:whitesmoke;
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        background-color: #e98f54;
+        display:flex;
+        justify-content: center;
+        line-height: 2rem;
+        font-size: clamp(1rem, 1vw, 4rem);
+        animation: square 1s ease;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+        
+    }
+    @keyframes square {
+        0% {
+            transform: scale(0.5) translate(-1000px,50%);
+            opacity: 0;
+        }
+        50%{
+            opacity: 0.3;
+        }    
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+.hojaDerecha{ 
+    display: flex;
+    width: 50%;
+    background-color:#066D74;
+    padding: 2rem 2rem 0 2rem;
+    
+}
+.hojaDerecha h1{
+    color:whitesmoke;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+.login-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.login-box h1{
+    font-size: clamp(1rem, 1vw + 1rem, 4rem) ;
+}
+.separador{
+    width: 50%;
+    height: 2px;
+    background-color: whitesmoke;
+    margin-bottom: 2rem;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+    .formulario i{
+        color:whitesmoke;
+        font-size: clamp(1rem, 1vw, 2rem);
+    }
+
+
+    .formulario input{
+        font-family: 'Open Sans', sans-serif;
+        font-weight:400;
+        width:60%;
+        color:whitesmoke;
+        font-size: clamp(.6rem, 1vw, 2rem);
+        padding: 0.5rem;
+        line-height: 1rem;
+        background: transparent;
+        border:0;
+        border-bottom: solid whitesmoke 2px;
+        outline: 0;
+    }
+
+.nombreYApellido input{
+    width:100%;
+    color:whitesmoke;
+    font-size: 15px;
+    padding: 0.5rem;
+    font-size: clamp(.6rem, 1vw, 2rem);
+    line-height: 1rem;
+    background: transparent;
+    border:0;
+    border-bottom: solid whitesmoke 2px;
+    outline: 0;
+}
+.nombreYApellido{
+    display: flex;
+    gap: 2rem;
+}
+.textbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerButton{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.containerButton button{
+    width: 50%;
+    height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease 0s;
+}
+    .containerButton button:hover{
+        background-color: whitesmoke;
+        box-shadow: 0px 15px 20px rgba(245, 245, 245, 0.4);
+        color: #066D74;
+        transform: translateY(-7px);
+    }
+
+@media screen and (max-width:560px) {
+    .hojaIzquierda{
+        display: none;
+    }
+    .hojaDerecha{
+        width: 100%;
+    }
+    
+}

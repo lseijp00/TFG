@@ -1,0 +1,411 @@
+@import "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins';
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+
+}   
+h1,h2,h3,h4,h5,h6{
+    line-height: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+}
+
+.container{
+    width: 100%;
+    margin-top: 40px;
+    height: auto;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4vh; 
+}
+
+    .contenedorBack{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor:pointer;
+        width: 230px;
+    }
+        .contenedorBack p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-size: clamp(16px, .5vw + 1rem, 2rem);
+            opacity: 0;
+            transition:all 0.3s ease ;
+            padding-left: 10px;
+        }
+
+        .contenedorBack i{
+            color:white;
+            font-size: clamp(16px, 2vw + 2rem, 4rem);
+            transform: scaleX(1.4);
+            transition:all 0.3s ease ;
+        }
+            .contenedorBack:hover i{
+               transform:translateX(-80px);
+            }
+            .contenedorBack:hover p{
+                opacity: 1;
+             }
+        
+
+        .contenedorAnadirFoto{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border:none;
+            width: 230px;
+ 
+            font-size: clamp(10px, 1vw + .1rem, 20px);
+            background-color: #ff858573;
+            color:white;
+        }
+        .elegirFile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 0 3rem 0;
+            position: relative;
+        }
+        .elegirFile:hover{
+            background-color:#5e1e31;
+        }   
+            .elegirFile .labelFile {
+                font-size: clamp(10px, 1vw + .1rem, 20px);
+                font-weight: 500;
+                color: white;
+                cursor: pointer;
+            }
+            .elegirFile .labelFile i{
+                margin-left: 10px;
+            }
+    
+        
+        .botonFile{
+            position: absolute;
+            bottom: 0;
+        }
+        .inputSubmitFile{
+            border: none;
+            outline: none;
+            bottom: 0;
+            background-color: #ff8585a4;
+            color:white;
+            padding: 0.5rem 2rem;
+        }
+
+        .inputSubmitFile:hover{
+            cursor: pointer;
+            background-color: #F99AB6;
+            color: black;
+        }
+
+    /* para ocultar el examinar foto */
+    .file {
+        display: none;
+    }
+
+    .titulo{
+        text-shadow: 2px 2px 13px rgba(150, 150, 150, 0.6);
+    }
+    .titulo h1{
+        line-height: inherit;
+        color: white;
+        letter-spacing: 3px;
+        font-size: clamp(7px, 1.7vw + 1rem, 50px);
+        text-align: center;
+    }
+
+.carousel{
+    display: flex;
+    min-height:75vh;
+}
+    .carousel .carousel-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        min-width: 450px;
+        min-height: 350px;
+        user-select: none;
+        border-radius: 30px;
+        
+    }
+
+        .containerImagenCarrousel{
+            position: relative;
+        }
+        .carousel .carousel-item .imagenAlbum {
+            max-width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 30px;
+            aspect-ratio: 1/1;
+        }
+
+        .fa-edit,.fa-trash-alt{
+            position: absolute;
+            top:30px;
+            font-size: 23px;
+            color:white;
+            padding:0.5rem;
+            transform: translate(-50%,-50%);
+            cursor: pointer;
+        }
+        .fa-edit{
+            left: 15%;
+        }
+            .fa-edit:hover{
+                font-size: 25px;
+            }
+        .fa-trash-alt{
+            left: 85%;
+        }
+            .fa-trash-alt:hover{
+                font-size: 25px;
+            }
+
+.informacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+
+}
+    .ciudad{
+        width: 100%;
+        height: auto;
+        font-size: clamp(13px, 1vw + 1.4rem, 35px);
+        color: white;
+        line-height: 40px;
+        text-align: center;
+        
+    }
+
+    .categoria{
+        text-align: center;
+        width: 100%;
+        display: flex;
+        height: auto;
+        color: white;
+        font-size: clamp(17px, 1vw + 2rem, 45px);
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
+        z-index: 9;
+    }
+    
+    .modal {
+        position: fixed;
+        top: 30%;
+        left: 0;
+        display: block;
+        width: 500px;
+        height: auto;
+        outline: 0;
+        padding: 1rem;
+        transform: translateY(600px);
+        opacity: 0;
+      }
+     
+
+        .modal-header {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            border-top-left-radius: calc(0.3rem - 1px);
+            border-top-right-radius: calc(0.3rem - 1px);
+        }
+        .modal-header .btn-close {
+            padding: 0.5rem 0.5rem;
+            margin: -0.5rem -0.5rem -0.5rem auto;
+        }
+        
+        .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        .modal-form{
+            display: flex;
+            flex-direction: column;
+            margin-top: 5%;
+        }
+        .modal-form-delete{
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+            gap:15%;
+        }
+        
+
+            .modal-form button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-self: center;
+                width: 30%;
+                margin-top: 5%;
+                text-align:center !important;
+                padding: 0.5rem 1rem 0.5rem 1rem;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: rgb(197, 195, 195);
+            }
+            .modal-form-delete button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-self: center;
+                width: 30%;
+                margin-top: 5%;
+                text-align:center !important;
+
+                padding: 0.5rem 1rem 0.5rem 1rem;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: rgb(197, 195, 195);
+            }
+            .modal-form button:hover{
+                background-color:rgb(94, 92, 92) ;
+                color: white;
+            }
+            .modal-form-delete button:hover{
+                background-color:rgb(94, 92, 92) ;
+                color: white;
+            }
+
+        .buttonModal-close {
+            padding: 0.25em 0.25em;
+            color: black !important;
+            border: 0;
+            border-radius: 0.25rem;
+            font-size: 20px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+        .butonModal-close:hover{
+            color: black;
+        }
+        .fa-times {
+            color: rgb(94, 92, 92) ;
+            font-size: 20px;
+            cursor: pointer;
+        }
+            .fa-times:hover {
+                color: black;
+            }
+
+.informacionCarouselVacio{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+    color: rgba(255, 255, 255, 0.429);
+    text-align: center;
+    z-index: -99;
+}
+.informacionCarouselVacio h3{
+    font-size:26px !important;
+}
+
+
+@media screen and (max-width: 1060px){
+    .contenedorBack,.contenedorAnadirFoto{
+        width: 180px;
+    }
+    .carousel .carousel-item .imagenAlbum {
+        width: 350px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 840px){
+    .carousel{
+        margin-top: -4rem;    
+    }
+    .contenedorBack,.contenedorAnadirFoto{
+        width: 140px;
+    }
+    .contenedorBack:hover i{
+        transform:translateX(-60px);
+    }
+
+    .carousel .carousel-item .imagenAlbum {
+        width: 300px;
+        height: auto;
+    }
+    
+} 
+@media screen and (max-width: 620px){
+    .contenedorBack,.contenedorAnadirFoto{
+        width: 110px;
+    }
+    .elegirFile {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: .5rem 0 2.5rem 0;
+      }
+    .contenedorAnadirFoto i{
+        display: none;
+    }
+    .contenedorBack i{
+        display: none;
+    }
+    .contenedorBack p{
+        opacity: 1;
+    }
+    .carousel .carousel-item .imagenAlbum {
+        width: 270px;
+        height: auto;
+    }
+} 
+@media screen and (max-width: 450px){
+    .carousel{
+        margin-top: -4rem;
+        min-height:65vh;
+    
+    }
+    .carousel .carousel-item .imagenAlbum {
+        width: 230px;
+        height: auto;
+    }
+} 
