@@ -186,10 +186,14 @@ script(type="text/javascript").
     //manejar visitante
     if(usernameLocalStorage=="visitante"){
         const botonesSideNav = document.querySelectorAll(".botonSidenav")
-        var elems = document.getElementsByClassName("botonSidenav")
-        for(let i = 0; i<elems.length; i++){
-            elems[i].style.display="none"
-        }
+        var elemBotons = document.querySelectorAll(".botonSidenav")
+        var elemLikes = document.querySelectorAll(".containerLike")
+        elemLikes.forEach(elem => {
+          elem.style.display="none"
+        })
+        elemBotons.forEach(elem => {
+          elem.style.display="none"
+        })
     }
 
     //creando botones para el filtrado de categorias

@@ -26,10 +26,10 @@ app.use('/usuarios', userRouter)
 app.use('/lugares', lugarRouter)
 app.use('/mensajes', mensajeRouter)
 
-// // Handle 404 - Keep this as a last route
-// app.use(function (req, res, next) {
-//   res.status(404).sendFile(path.join(__dirname, '/views/404.html'))
-// })
+// Handle 404 - Keep this as a last route
+app.use(function (req, res, next) {
+  res.status(404).sendFile(path.join(__dirname, '/views/404.html'))
+})
 
 app.listen('3000', function () {
   console.log('aplicacion iniciada en el puerto 3000')
