@@ -58,24 +58,25 @@ a, a:visited {
   color: var(--light-blue);
 }
 
-.error-actions{
+.error-actions {
   display: flex;
   width: 100%;
 }
 
-.error-actions a{
+.error-actions a {
   margin-left: auto;
   padding: 1rem;
   color: var(--light-blue);
   background-color: transparent;
-  outline: solid var(--light-blue) 3px;
+  border: solid var(--light-blue) 3px;
   border-radius: 10px;
   font-size: 20px;
   box-shadow: 2px 2px .5rem var(--light-blue);
 }
 
-.error-actions a:hover{
-  outline: none;
+.error-actions a:hover {
+  border: solid transparent 3px;
+  ;
   color: var(--background-color);
   background-color: var(--light-blue);
   box-shadow: 2px 2px .5rem var(--light-blue);
