@@ -1,15 +1,13 @@
-var mysql = require("mysql")
+const mysql = require('mysql')
 
 const conector = mysql.createConnection(
-    {
-        host:"localhost",
-        user:"luis",
-        password:"123456",
-        database:"tfg_proyectotest",
-        multipleStatements: true,
-    }
+  {
+    host: 'localhost',
+    user: 'luis',
+    password: '123456',
+    database: 'database_appinterest',
+    multipleStatements: true
+  }
 )
 
-module.exports=conector
-
-
+module.exports = conector
