@@ -294,12 +294,12 @@ script(type="text/javascript").
         if(window.innerWidth <  650){
             tl2
             .to($cartaModal, 0,{scale:.8})
-            .fromTo($cartaModal, 0.5, {x:1000}, {x:-100})
+            .fromTo($cartaModal, 0.5, {x:1200}, {x:-100})
             
         }else{
             tl2
             .to($cartaModal, 0,{scale:1})
-            .fromTo($cartaModal, 0.5, {x:1000}, {x:0})
+            .fromTo($cartaModal, 0.5, {x:1200}, {x:0})
         }
         
         tl2
@@ -345,7 +345,7 @@ script(type="text/javascript").
 
     function cerrarModal(){     
         tl2
-            .fromTo($cartaModal, 0.5, {x:0}, {x:1000})
+            .fromTo($cartaModal, 0.5, {x:0}, {x:1200})
         tl2
             .to($header, 0.5, {display:"flex"},"=-0.5")  
         $header.classList.toggle("modal-openned")

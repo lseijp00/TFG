@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const imagenesControllers = require('../controllers/controlador_imagen.js')
 const multer = require('multer')
+const mimeTypesFilter = require('@meanie/multer-mime-types-filter')
 
 const fileStorageEngine = multer.diskStorage({
 
@@ -15,8 +16,10 @@ const fileStorageEngine = multer.diskStorage({
 })
 
 const upload = multer({
-  storage: fileStorageEngine
+  storage: fileStorageEngine,
+  fileFilter: mimeTypesFilter(['image/jpeg', 'image/png', 'image/gif'])
 })
+
 // POST
 app.post('/album', imagenesControllers.mostrarImagenes)
 app.post('/subir_imagen', upload.single('file'), imagenesControllers.guardarImagen)
