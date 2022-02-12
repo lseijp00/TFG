@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
+    "@meanie/multer-mime-types-filter": "^2.0.1",
     "@swup/js-plugin": "^1.0.4",
     "bootstrap": "^5.1.0",
     "connect-history-api-fallback": "^1.6.0",
