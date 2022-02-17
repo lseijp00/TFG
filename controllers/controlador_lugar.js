@@ -15,7 +15,7 @@ module.exports = {
 
   crearLugar: function (req, res) {
     if (req.file === undefined) {
-      return res.send('You must select a file.')
+      return res.send('Debes seleccionar una imagen.')
     }
 
     lugar.añadir(conexion, req, function (err, result) {
@@ -71,10 +71,7 @@ module.exports = {
 
       const dataLugares = JSON.parse(JSON.stringify(result))
 
-      const categorias = dataLugares.map(element => element.categoria)
-      const imagenes = dataLugares.map(element => element.imagen_lugar)
-
-      res.render('categoria', { dataLugares: dataLugares, categorias: categorias, imagenes: imagenes })
+      res.render('categoria', { dataLugares: dataLugares, categorias: req.body.miCategoria })
     })
   },
 

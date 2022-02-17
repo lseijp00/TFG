@@ -52,9 +52,9 @@
                         li(onClick="location.reload();")
                             i.fas.fa-home
                             <a href="#"><p class="textItemSidebar">Inicio</p></a>   
-                        li(onClick="window.open('../lugares/buscar_lugar','_self')")
-                            i.fas.fa-search
-                            <a href="../lugares/buscar_lugar"> Buscar lugar</a>
+                        li
+                          i.fas.fa-search
+                          <a href="../lugares/buscar_lugar"> Buscar lugar</a>
                         li.ocultarBoton(onClick="window.open('../lugares/nuevo_lugar','_self')")
                             i.fas.fa-plus
                             <a class="botonSidenav" href="../lugares/nuevo_lugar">Añadir lugar</a>
@@ -118,16 +118,16 @@
                     .galeriaComentarios
                         .comentarioBox
                             h2.comment-title Holiday Inn Resort Batam
-                            p.comment-body Agradezco mucho que Agoda me dejara cambiar de habitación sin ningún coste. Gran personal, tanto el de Agoda como el de Holiday Inn.
-                            h3.comment-user - Andy de Singapur
+                            p.comment-body Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus accusantium, odio facilis quam nobis explicabo repudiandae numquam eos nemo cum laudantium iusto quaerat officia exercitationem nulla at dolor neque!
+                            h3.comment-user - Luis de León
                         .comentarioBox    
-                            h2.comment-title Holiday Inn Resort Batam
-                            p.comment-body Agradezco mucho que Agoda me dejara cambiar de habitación sin ningún coste. Gran personal, tanto el de Agoda como el de Holiday Inn.
-                            h3.comment-user - Andy de Singapur
+                            h2.comment-title Holiday Lorem, ipsum.
+                            p.comment-body Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quaerat nam iusto qui similique dolore exercitationem dicta ipsam totam perferendis molestias est nisi ullam, tempora accusamus, placeat ipsa autem facilis?
+                            h3.comment-user - Sandra de Teruel
                         .comentarioBox
-                            h2.comment-title Holiday Inn Resort Batam
-                            p.comment-body Agradezco mucho que Agoda me dejara cambiar de habitación sin ningún coste. Gran personal, tanto el de Agoda como el de Holiday Inn.
-                            h3.comment-user - Andy de Singapur
+                            h2.comment-title Vacaciones en Ibiza
+                            p.comment-body Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi magni cumque accusantium, eius corrupti reprehenderit exercitationem rem magnam ipsam pariatur possimus ipsa et facere minus tempore consequuntur sed nostrum beatae?
+                            h3.comment-user - Javier de Toledo
                        
                 .containerContact
                     h2(data-aos="fade-right") Contáctanos
@@ -206,7 +206,6 @@
 
         const existeUsuario= `!{itExists}`;
         const username= `!{usernameLogged}`;
-        const password= `!{passwordLogged}`;
         const lugarVivienda= `!{lugarVivienda}`;
 
         var existeSesionIniciada = () => {
@@ -261,7 +260,7 @@
         }
 
                    
-        if(username=="visitante"){
+        if(miStorage.getItem("username")=="visitante"){
             var botonesOcultos = document.querySelectorAll(".ocultarBoton")
             botonesOcultos.forEach(item =>{
                 item.style.display ="none"

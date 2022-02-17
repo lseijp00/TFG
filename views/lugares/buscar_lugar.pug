@@ -169,10 +169,8 @@ script(type="text/javascript").
     const categorias = `!{categorias}`.split(",")
     const descripciones = `!{descripciones}`.split("SEPARATION_BETW_DESCRI,")
       descripciones[descripciones.length - 1] = descripciones[descripciones.length - 1].replace("SEPARATION_BETW_DESCRI", " ")
-    const likes = `!{likes}`.split(",")
-    const autores = `!{autores}`.split(",")
-    const imagenesArray = `!{imagenesLugar}`.split(",")
     const galeria = document.querySelector(".galeriaLugares")
+    var arrayLugares = !{JSON.stringify(dataLugares)}
 
     var elemPlaceholder = document.querySelectorAll(".placeholderSelect");
     var elemOptionsArr = document.querySelectorAll(".containerOptions");
@@ -283,11 +281,12 @@ script(type="text/javascript").
 
     //VENTANA MODAL 
     const tl2 = new TimelineLite();
+
     const objetoDistancias = !{JSON.stringify(distancias)}
+    const objArrDistancias = objetoDistancias.distancias
+
     const ciudadUsuario = localStorage.getItem("lugarVivienda")
     const ciudadUsuarioSinTildes = ciudadUsuario.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-
-    const objArrDistancias = objetoDistancias.distancias
     
     function abrirModal(evt){     
 
@@ -307,10 +306,10 @@ script(type="text/javascript").
         $header.classList.toggle("modal-openned")
         $container.classList.toggle("modal-openned")   
 
-        categoriaModal.innerText = categorias[evt.currentTarget.myParam]  
-        descripcionModal.innerText = descripciones[evt.currentTarget.myParam]
-        imagenModal.src = "../images/imagenesLugar/"+imagenesArray[evt.currentTarget.myParam]
-        auxValorCiudad.value = ciudades[evt.currentTarget.myParam]  
+        categoriaModal.innerText = arrayLugares[evt.currentTarget.myParam].categoria 
+        descripcionModal.innerText = arrayLugares[evt.currentTarget.myParam].descripcion
+        imagenModal.src = "../images/imagenesLugar/"+arrayLugares[evt.currentTarget.myParam].imagen_lugar
+        auxValorCiudad.value = arrayLugares[evt.currentTarget.myParam].ciudad 
 
 
         var ciudadPulsada = auxValorCiudad.value
@@ -499,7 +498,6 @@ script(type="text/javascript").
     
     function borrarCartasCategoria(valorCategoria){
         categoriasPintadasCartas.forEach(function(categoriaPintada){
-
             if(categoriaPintada.innerHTML.toLowerCase() != valorCategoria.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")){
                 categoriaPintada.parentElement.parentElement.remove()
             }
@@ -519,7 +517,7 @@ script(type="text/javascript").
 
 //-   const dataLugares = !{JSON.stringify(dataLugares)}
 
-
+//-   console.log(dataLugares)
 //-   function Pagination() {
     
     

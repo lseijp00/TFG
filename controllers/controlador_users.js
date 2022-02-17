@@ -5,7 +5,7 @@ module.exports = {
 
   authUsuario: function (req, res) {
     usuario.autenticar(conexion, req.body, function (_err, datos) {
-      if (datos !== undefined && datos.length > 0) {
+      if (datos.length > 0) {
         const string1 = JSON.stringify(datos)
         const parsed = JSON.parse(string1)
 
@@ -13,7 +13,6 @@ module.exports = {
           res.render('usuarios/logged_usuario', {
             itExists: true,
             usernameLogged: parsed[0].username,
-            passwordLogged: parsed[0].password,
             lugarVivienda: parsed[0].lugar_vivienda
           })
         } else {
@@ -81,7 +80,7 @@ module.exports = {
   // recibe la informacion del usuario y la guarda
   guardarUsuario: function (req, res) {
     usuario.añadir(conexion, req.body, () => {
-      res.render('index')
+      res.render('index.pug')
     })
   },
 

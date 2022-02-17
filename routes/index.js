@@ -19,7 +19,6 @@ app.get('/logout', function (req, res) {
 app.post('/resultados_acordes_busqueda', function (req, res) {
   res.render('categoria', {
     distancia: req.body.distancia
-
   })
 })
 

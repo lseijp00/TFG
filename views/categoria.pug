@@ -27,9 +27,7 @@ link(rel="stylesheet", href="/css/stylesCategoria.css")
         .galeria
           each card, i in dataLugares
             article.blog-card
-              img.post-image(
-                src=`/images/imagenesLugar/${ dataLugares[i].imagen_lugar }`
-              )
+              img.post-image(src=`/images/imagenesLugar/${ dataLugares[i].imagen_lugar }`)
               .article-details
                 h4.post-category Categoría: !{ dataLugares[i].categoria }
                 h3.post-city Ciudad: !{ dataLugares[i].ciudad }
@@ -43,6 +41,8 @@ link(rel="stylesheet", href="/css/stylesCategoria.css")
 
   script(type="text/javascript").
     const categoria = !{JSON.stringify(categorias)}[0]
+    const dataLugares = !{JSON.stringify(dataLugares)}
+
     const body = document.querySelector("body");
     const blogCard = document.querySelector(".blog-card");
     const separador = document.querySelectorAll(".colorSeparador")
@@ -90,8 +90,9 @@ link(rel="stylesheet", href="/css/stylesCategoria.css")
       body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/hotel.png") ';
     } else if (categoria.toLowerCase() == "otros") {
       body.style.backgroundImage = 'url("/images/imagenesFondoCategoria/otros.png") ';
-    } else {
+    } else if(dataLugares.length === 0){
       var elems = document.querySelectorAll(".tituloCategoriaVacia");
+      document.querySelector(".tituloCategoria").style.display="none"
       elems.forEach(function (item) {
         item.style.opacity = "1";
       });

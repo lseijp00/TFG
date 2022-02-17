@@ -86,7 +86,7 @@ body:before {
     
     .contenedorImagenStarted img{
         width: 30%;
-        background-color: #e98f54;
+        background-color: rgb(233, 143, 84);
         border-radius:30% ;
     }
 
@@ -146,7 +146,7 @@ body:before {
 .hojaDerecha{ 
     display: flex;
     width: 50%;
-    background-color:#066D74;
+    background-color:rgb(6, 109, 116);
     padding: 2rem 2rem 0 2rem;
     
 }
@@ -256,5 +256,30 @@ body:before {
     .hojaDerecha{
         width: 100%;
     }
-    
+    .login-box{
+      height: 100%;
+    }
+    .textbox input, .textbox i{
+      font-size: 17px;
+    }
+    .login-box h1{
+      font-size: 23px;
+      text-transform: uppercase;
+    }
+    .separador{
+      margin-bottom: 3rem;
+    }
+    .containerButton{
+      margin-top: 3rem;
+    }
+    .containerButton button {
+      width: 60%;
+      height: 60px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+      transition: 0.3s ease 0s;
+    }
 }

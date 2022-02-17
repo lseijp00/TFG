@@ -67,7 +67,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #EFC9AF;
+    background-color: rgb(239, 201, 175);
     max-width: 100%;
 }
 
@@ -92,6 +92,24 @@ body {
 }
 .imagenLogo{
     width: 220px;
+}
+.logoRegistro {
+  width: 220px;
+  padding: .5rem;
+  margin: .5rem;
+  aspect-ratio: 1/1;
+}
+
+#flechasVectorLogo {
+  animation: rotate 2.5s ease-in-out infinite;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  animation-direction: reverse;
+}
+@keyframes rotate {
+  50%, 100% {
+    transform: rotate(360deg);
+  }
 }
 .containerSubHeader{
     display: flex;
@@ -329,6 +347,8 @@ body {
         position: relative;
         max-width: 300px;
         max-height: 210px;
+        cursor: pointer;
+
     }
 
     .tituloArticulo{
@@ -337,7 +357,7 @@ body {
         color:#fff;
         text-align: center;
         font-family: 'Poppins';
-        font-size: clamp(18px,.7vw + .5rem, 28px);
+        font-size: clamp(10px, 1vw + .2rem, 22px);
     }
     .articulo img{
         width:100%;
@@ -380,7 +400,6 @@ body {
 
         .articulo:hover .overlay{
             height: 100%;
-            cursor: pointer;
         }
 
 .containerInformationUsers{
@@ -399,7 +418,7 @@ body {
     .containerTextos .tituloUsers{
         text-align: right;
         text-transform: uppercase;
-        background-color: rgb(73, 150, 189);
+        background-color: #4996bd;
         color:#EFC9AF;
         word-wrap: normal;
         font-family: 'Oswald',sans-serif;

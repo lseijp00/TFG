@@ -124,15 +124,24 @@ body {
   border-bottom: 1px #e8e8f2 solid;
   padding: .2rem;
   width: auto;
-
+  z-index: 9999;
 }
 
 .item-right i {
   font-size: clamp(11px, 1vw + 1.1rem, 35px);
   color: #22252c;
-
+  z-index: 9999;
+  cursor: pointer;
+  
+}
+.item-right.facebook i:first-of-type:hover{
+  color: #3b5998 ;
 }
 
+
+.item-right i:last-of-type:hover{
+  color: #6e5494 ;
+}
 
 
 #menu-display {
@@ -172,6 +181,7 @@ body {
   flex-direction: column;
   height: 100%;
   margin-top: clamp(60px, 5vw + 2.7rem, 150px);
+  z-index: -9;
 }
 
 
@@ -189,7 +199,7 @@ body {
 
 .sliderHeadline {
 
-  width: min(150px + 8%, 50%);
+  width: min(150px + 13%, 50%);
   line-height: 80px;
   bottom: 0;
   position: absolute;
@@ -412,11 +422,10 @@ body {
 .footer {
   padding: 1rem;
   display: flex;
-
   background-color: #3D3D4A;
   text-align: center;
   font-size: clamp(.3rem, .5vw + .3rem, 1rem);
-
+  z-index: 999;
 }
 
 .footer p, .footer i {
@@ -536,12 +545,11 @@ body {
   .slider {
     height: 35vh;
   }
-
   .slider .sliderHeadline {
     transform: translate(-50%, -50%);
-    line-height: 50px;
-  }
+    line-height: 40px;
 
+  }
 
   .item-right {
     height: 50px;
@@ -586,5 +594,14 @@ body {
 
   .titleTeam, .titleValores {
     line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .slider .sliderHeadline {
+    transform: translate(-50%, -50%);
+    width: 80%;
+    line-height: 50px;
+
   }
 }

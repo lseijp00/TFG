@@ -6,6 +6,8 @@ module.exports = {
 
   mostrarImagenes: function (req, res) {
     imagen.mostrar(conexion, req.body, function (req, results) {
+      console.log(results)
+
       const resultArray = Object.values(JSON.parse(JSON.stringify(results)))
       const newArr = resultArray.map(element => {
         if (element.ciudad.length !== 0 && element.categoria.length !== 0) {
@@ -13,6 +15,7 @@ module.exports = {
         }
         return element.username + element.indexFotoUsuario + '.jpg'
       })
+
       res.render('imagenes/album', { album: newArr })
     })
   },
@@ -23,7 +26,7 @@ module.exports = {
     const files = fs.readdirSync('public/css/images/imagenesAlbum/')
 
     if (!archivo) {
-      return res.status(400).send({ message: 'Please upload a file.' })
+      return res.status(400).send({ message: 'Por favor seleccione un archivo.' })
     }
 
     let numImagenesUsuario = 0

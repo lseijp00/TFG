@@ -90,7 +90,7 @@
   margin-bottom: 2px;
   background-color: rgb(168, 167, 167);
   color: white;
-
+  font-size: clamp(.5rem, 1vw, .8rem);
 }
 
 .boton__selector {
@@ -170,6 +170,8 @@
 .post-image {
   display: flex;
   max-width: 150px;
+  height: 100%;
+  aspect-ratio: 1/1;
   padding: 1rem;
   object-fit: cover;
 }
@@ -512,7 +514,7 @@
     flex-direction: row;
 
     overflow: hidden;
-    min-height: 205px;
+    min-height: 195px;
     width: 90%;
   }
 
@@ -531,7 +533,7 @@
   .article-details {
     align-items: center;
     justify-content: flex-start;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .containerReadMore {
@@ -641,7 +643,7 @@
   }
 
   .blog-card:nth-child(2n+1) .containerLike {
-    left: 5;
+    left: 5px;
   }
 
 }
@@ -699,7 +701,7 @@
   }
 
   .placeholderSelect>i {
-    font-weight: 400;
+    
     padding: .3rem;
     border-radius: 10px;
     background-color: rgba(38, 39, 66, 0.658);
@@ -713,8 +715,9 @@
   }
 
   .post-image {
-    max-width: 80px;
-    height: auto;
+    border-radius: 40px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   .blog-card:nth-child(2n) .post-image {
@@ -736,12 +739,18 @@
 
   .blog-card:nth-child(2n+1) .containerDetailsCovid {
     margin-top: -1rem;
-    margin-right: 1rem;
+    margin-right: .5rem;
+    gap:5px;
   }
 
   .blog-card:nth-child(2n) .containerDetailsCovid {
     margin-top: -1rem;
     margin-right: -1rem;
+    gap:5px;
+
+  }
+  .containerCovid, .containerRestriccion {
+    gap: 3px;
   }
 
   .post-author, .post-category, .post-city {

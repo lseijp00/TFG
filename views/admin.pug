@@ -350,7 +350,7 @@
                     } else if (result.dismiss === Swal.DismissReason.cancel){
                         swalWithBootstrapButtons.fire(
                             'Cancelado',
-                            'El usuario no se ha borrado',
+                            'El lugar no se ha borrado',
                             'error'
                         )
                     }
@@ -411,7 +411,7 @@
 
     script(type="text/javascript").
 
-        const imagenesAll = document.querySelectorAll(".post-image")
+        const imagenesArr = document.querySelectorAll(".post-image")
         const categoriasAll = document.querySelectorAll(".post-category")
        //PINTAR DIBUJO DE LA CATEGORIA
         categoriasAll.forEach(function(categoria,index){
@@ -420,53 +420,57 @@
 
         function comprobarInput(cat,index){
 
-            if(cat.innerHTML.toLowerCase() == "montaña"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/mountain.png"
-                imagenesAll[index].style.borderRadius ="100%"
-            }else if(cat.innerHTML.toLowerCase() == "lago"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/lake.png"
-                imagenesAll[index].style.borderRadius ="100%"
-            }else if(cat.innerHTML.toLowerCase() == "pueblo"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/village.png"
-                imagenesAll[index].style.borderRadius ="100%"
-            }else if(cat.innerHTML.toLowerCase() == "valle"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/valley.png"
-                imagenesAll[index].style.borderRadius ="100%"
-            }else if(cat.innerHTML.toLowerCase() == "catarata"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/waterfall.png"
-                imagenesAll[index].style.borderRadius ="100%"
-            }else if(cat.innerHTML.toLowerCase() == "rio"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/river.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "mirador"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/telescope.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "museo"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/museum.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "ruta"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/path.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "otros"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/others.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "restaurante"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/restaurant.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else if(cat.innerHTML.toLowerCase() == "hotel"){
-                imagenesAll[index].src="/css/images/imagenesCategoria/hotel.png"
-                imagenesAll[index].style.borderRadius ="20%"
-            }
-            else{
-                imagenesAll[index].src="/css/images/imagenesCategoria/no_photo.png"
-                imagenesAll[index].style.borderRadius ="0px"
-            }
+          if(cat.innerHTML.toLowerCase() == "montaña"){
+              imagenesArr [index].src="../images/imagenesCategoria/mountain.png"
+              imagenesArr [index].style.borderRadius ="100%"
+          }else if(cat.innerHTML.toLowerCase() == "lago"){
+              imagenesArr [index].src="../images/imagenesCategoria/lake.png"
+              imagenesArr [index].style.borderRadius ="100%"
+          }else if(cat.innerHTML.toLowerCase() == "pueblo"){
+              imagenesArr [index].src="../images/imagenesCategoria/village.png"
+              imagenesArr [index].style.borderRadius ="100%"
+          }else if(cat.innerHTML.toLowerCase() == "valle"){
+              imagenesArr [index].src="../images/imagenesCategoria/valley.png"
+              imagenesArr [index].style.borderRadius ="100%"
+          }else if(cat.innerHTML.toLowerCase() == "catarata"){
+              imagenesArr [index].src="../images/imagenesCategoria/waterfall.png"
+              imagenesArr [index].style.borderRadius ="100%"
+          }else if(cat.innerHTML.toLowerCase() == "rio"){
+              imagenesArr [index].src="../images/imagenesCategoria/river.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "mirador"){
+              imagenesArr [index].src="../images/imagenesCategoria/telescope.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "museo"){
+              imagenesArr [index].src="../images/imagenesCategoria/museum.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "ruta"){
+              imagenesArr [index].src="../images/imagenesCategoria/path.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "bar"){
+              imagenesArr [index].src="../images/imagenesCategoria/bar.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "otros"){
+              imagenesArr [index].src="../images/imagenesCategoria/others.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "restaurante"){
+              imagenesArr [index].src="../images/imagenesCategoria/restaurant.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else if(cat.innerHTML.toLowerCase() == "hotel"){
+              imagenesArr [index].src="../images/imagenesCategoria/hotel.png"
+              imagenesArr [index].style.borderRadius ="20%"
+          }
+          else{
+              imagenesArr [index].src="../images/imagenesCategoria/no_photo.png"
+              imagenesArr [index].style.borderRadius ="0px"
+          }
         }
 
 
